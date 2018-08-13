@@ -2,7 +2,7 @@ const exphbs = require('express-handlebars');
 let express = require('express');
 let app = express();
 const settingBill = require("./settings");
-const setting = settingBill();
+const settings = settingBill();
 
 
 bodyParser = require('body-parser');
@@ -23,34 +23,51 @@ app.use(express.static('public'));
 
 
 app.get('/', function (req, res) {
-  res.render('settings-bill', {
-    settings: setting.settingBill(),
-    total: setting.total()
-  });
+  let setValues = settings.returnValues()
+ let color = settings.color()
+
+
+  res.render('settings-bill',{setValues, color});
 
 });
 
 
 app.post('/settings', function (req, res) {
-  setting.settingBill({
-    smsCost: req.body.smsCost,
-    callCost: req.body.callCost,
-    warningLevel: req.body.warningLevel,
-    criticalLevel: req.body.criticalLevel
+ 
+    settings.updateCall(req.body.callCost)
+    settings.updateSms(req.body.smsCost)
+    settings.warning(req.body.warnLevel)
+    settings.critical(req.body.critLevel)
 
+  res.redirect('/')
   })
 
   app.post("/action", function(req,res){
 
+      let type = req.body.billItemTypeWithSettings;
+       settings.calculate(type);
+       settings.total()
 
-    setting.
+    res.redirect('/')
+ 
   })
 
-  // note that data can be sent to the template
-  res.render('home', {
-    settings
-  })
-});
+app.get('actions/:type', function (req, res){
+  let type = req.params.type;
+if(type == 'call' || type == 'sms'){
+
+  let filteredList= settings.filterRecords(type)
+
+  res.render('actions', {bill:filteredList} )
+
+}else{
+  res.render('actions', {bill: settings.billList()} )
+
+}
+  //res.render('actions',{bill} )
+  console.log(type)
+
+})
 
 
 let PORT = process.env.PORT || 4007;

@@ -8,15 +8,28 @@ module.exports = function settingBill() {
   var critLevel = 0;
   var theTotal = 0;
 
+  let billList = []
+
   function calculateBill(billItemSet) {
 
+    var newDate = new Date()
+    let bill = {
+      type: billItemSet,
+      date: newDate//moment.fromNow(newDate)
+    };
+
     if (billItemSet === "call") {
+      bill.cost = callAmount
       callTheTotal += callAmount;
 
     } else if (billItemSet === "sms") {
+      bill.cost = smsAmount
       smsTheTotal += smsAmount;
 
     }
+    theTotal = callTheTotal + smsTheTotal
+    billList.push(bill)
+
   }
 
   function updateAmountwarnLvl(value) {
@@ -59,20 +72,63 @@ module.exports = function settingBill() {
 
   function colorChanger() {
     if (theTotal !== 0) {
-      if (theTotal >= warnLevel) {
-        return "warning";
-      }
       if (theTotal >= critLevel) {
         return "danger";
       }
+      if (theTotal >= warnLevel) {
+        return "warning";
+      }
+ 
       return;
     }
-function settingsHold(){
-  return{
+  }
 
+  // function billItemCalculate(value) {
+  //   var newDate = new Date()
+  //   let bill = {
+  //     type: value,
+  //     date: newDate//moment.fromNow(newDate)
+  //   };
+
+  //   if(costTotal > critLevel){
+
+  //     return
+  //   }
+  // // if(!totalCalls > 0 && !totalSms > 0){
+  //     if (value === "call") {
+  //       totalCalls += callValue;
+  //       bill.price = callValue.toFixed(2);
+
+  //     } else if (value === "sms") {
+  //       totalSms += smsValue;
+  //       bill.price = smsValue.toFixed(2);
+  //     //}
+  //   }
+  //   costTotal = totalCalls + totalSms;
+
+  //   billList.push(bill)
+  // }
+
+  function filterRecords (type){
+    return billList.filter(record => record.type === type)
   }
+
+function returnValues(){
+
+  return{
+    callTheTotal,
+    smsTheTotal,
+    callAmount,
+    smsAmount,
+    warnLevel,
+    critLevel,
+    theTotal
+  }
+
 }
-  }
+
+
+  
   return {
     calculate: calculateBill,
     callTotal: returnCallTotal,
@@ -81,8 +137,10 @@ function settingsHold(){
     updateCall: updateCallValue,
     updateSms: updateSmsValue,
     warning: updateAmountwarnLvl,
-    critical: updateAmountcritLvl
+    critical: updateAmountcritLvl,
     color: colorChanger,
-    setHold: settingsHold
+    returnValues,
+    billList,
+    filterRecords
   };
 }
