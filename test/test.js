@@ -1,5 +1,5 @@
 let assert = require('assert');
-let tester = require('../settings.js');
+let tester = require('../settings');
 
 const settings = tester();
 
