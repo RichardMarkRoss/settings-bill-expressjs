@@ -13,6 +13,23 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "express-handlebars": "^3.0.0"
-  }
+    "express-handlebars": "^3.0.0",
+    "moments": "0.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichardMarkRoss/settings-bill-expressjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RichardMarkRoss/settings-bill-expressjs/issues"
+  },
+  "homepage": "https://github.com/RichardMarkRoss/settings-bill-expressjs#readme"
 }

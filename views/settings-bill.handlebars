@@ -1,55 +1,55 @@
 <hr>
 
 <div class="row">
-<form action="/action" method='post'>
-  <div class="six columns">
-    <h5>Bill type</h5>
-    <label class="">
-      <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="call">
-      <span class="label-body">Call</span>
-    </label>
-    <label class="">
-      <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="sms">
-      <span class="label-body">SMS</span>
-    </label>
-    <button class="button-primary" type="submit" name="button">Add</button>
+  <form action="/action" method='post'>
+    <div class="six columns">
+      <h5>Bill type</h5>
+      <label class="">
+        <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="call">
+        <span class="label-body">Call</span>
+      </label>
+      <label class="">
+        <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="sms">
+        <span class="label-body">SMS</span>
+      </label>
+      <button class="button-primary" type="submit" name="button">Add</button>
 
-</form>
+  </form>
 
 
-    <h5>Totals</h5>
-    <table>
-      <tr>
-        <td>
-          <a href="/actions/call">Call total</a>
-        </td>
-        <td>R
-          <span class="callTotalSettings">{{setValues.callTheTotal}}</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="/actions/sms">SMS total</a>
-        </td>
-        <td>R
-          <span class="smsTotalSettings">{{setValues.smsTheTotal}}</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="/actions">Total</a>
-        </td>
-        <td> R
-          <span class="totalSettings {{color}}">{{setValues.theTotal}}</span>
-        </td>
-      </tr>
-    </table>
+  <h5>Totals</h5>
+  <table>
+    <tr>
+      <td>
+        <a href="/actions/call">Call total</a>
+      </td>
+      <td>R
+        <span class="callTotalSettings">{{setValues.callTheTotal}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/actions/sms">SMS total</a>
+      </td>
+      <td>R
+        <span class="smsTotalSettings">{{setValues.smsTheTotal}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="/actions">Total</a>
+      </td>
+      <td> R
+        <span class="totalSettings {{color}}">{{setValues.theTotal}}</span>
+      </td>
+    </tr>
+  </table>
 
   </div>
   <div class="six columns">
     <h5>Settings</h5>
     <form class="" action="/settings" method="post">
-      <input type="text" name="callCost" placeholder="enter sms cost" value="{{setValues.callAmount}}">
+      <input ="text" name="callCost" placeholder="enter sms cost" value="{{setValues.callAmount}}">
       <input type="text" name="smsCost" placeholder="enter call cost" value="{{setValues.smsAmount}}">
       <input type="text" name="warnLevel" placeholder="enter warning level" value="{{setValues.warnLevel}}">
       <input type="text" name="critLevel" placeholder="enter critical level" value="{{setValues.critLevel}}">
