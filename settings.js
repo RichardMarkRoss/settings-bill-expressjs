@@ -41,7 +41,7 @@ module.exports = function () {
 
     function updateCallValue (value) {
         callAmount = parseFloat(value);
-        return callAmount;
+        return callAmount.toFixed(2);
     }
 
     function returnCallTotal () {
@@ -50,7 +50,7 @@ module.exports = function () {
 
     function updateSmsValue (value) {
         smsAmount = parseFloat(value);
-        return smsAmount;
+        return smsAmount.toFixed(2);
     }
 
     function returnSmsTotal () {
