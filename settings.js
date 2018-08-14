@@ -1,6 +1,6 @@
 let Moment = require('moment');
 
-module.exports = function settingBill () {
+module.exports = function () {
     var callTheTotal = 0;
     var smsTheTotal = 0;
     var callAmount = 0;
