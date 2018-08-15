@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/RichardMarkRoss/settings-bill-expressjs.svg?branch=master)](https://travis-ci.org/RichardMarkRoss/settings-bill-expressjs)
+[![Heroku](https://ross-settings-bill.herokuapp.com/?app=ross-settings-bill)]
 
 # Introduction to creating web apps with ExpressJS
 
