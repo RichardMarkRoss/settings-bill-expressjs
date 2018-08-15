@@ -19,11 +19,13 @@ module.exports = function () {
         };
 
         if (billItemSet === 'call') {
-            bill.cost = callAmount;
             callTheTotal += callAmount;
+            bill.cost = callAmount;
+            
         } else if (billItemSet === 'sms') {
-            bill.cost = smsAmount;
             smsTheTotal += smsAmount;
+            bill.cost = smsAmount;
+           
         }
         theTotal = callTheTotal + smsTheTotal;
         billList.push(bill);
@@ -83,13 +85,13 @@ module.exports = function () {
 
     function returnValues () {
         return {
-            callTheTotal,
-            smsTheTotal,
+            callTheTotal: returnCallTotal,
+            smsTheTotal: returnSmsTotal,
             callAmount,
             smsAmount,
             warnLevel,
             critLevel,
-            theTotal
+            theTotal: totalReturn
         };
     }
 
