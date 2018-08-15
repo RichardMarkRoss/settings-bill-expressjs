@@ -21,11 +21,9 @@ module.exports = function () {
         if (billItemSet === 'call') {
             callTheTotal += callAmount;
             bill.cost = callAmount;
-            
         } else if (billItemSet === 'sms') {
             smsTheTotal += smsAmount;
             bill.cost = smsAmount;
-           
         }
         theTotal = callTheTotal + smsTheTotal;
         billList.push(bill);
@@ -58,16 +56,6 @@ module.exports = function () {
     function returnSmsTotal () {
         return smsTheTotal.toFixed(2);
     }
-
-    function totalReturn () {
-        let diff = theTotal - critLevel;
-        theTotal = callTheTotal + smsTheTotal;
-        if (theTotal > critLevel) {
-            theTotal -= diff;
-        }
-        return theTotal.toFixed(2);
-    }
-
     function colorChanger () {
         if (theTotal !== 0) {
             if (theTotal >= critLevel) {
@@ -77,6 +65,14 @@ module.exports = function () {
                 return 'warning';
             }
         }
+    }
+    function totalReturn () {
+        let diff = theTotal - critLevel;
+        theTotal = callTheTotal + smsTheTotal;
+        if (theTotal > critLevel) {
+            theTotal -= diff;
+        }
+        return theTotal.toFixed(2);
     }
 
     function filterRecords (type) {
@@ -91,7 +87,7 @@ module.exports = function () {
             smsAmount,
             warnLevel,
             critLevel,
-            theTotal: totalReturn
+            theTotal
         };
     }
 

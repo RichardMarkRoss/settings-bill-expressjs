@@ -50,13 +50,13 @@
     <h5>Settings</h5>
     <form class="" action="/settings" method="post">
       <label for="exampleEmailInput">Call cost</label>
-      <input class="u-full-width" type="text" name="callCost" placeholder="enter sms cost" value="{{setValues.callAmount}}">
+      <input class="u-full-width" type="text" step='0.01' name="callCost" placeholder="enter sms cost" value="{{setValues.callAmount}}">
       <label for="exampleEmailInput">SMS cost</label>
-      <input class="u-full-width" type="text" name="smsCost" placeholder="enter call cost" value="{{setValues.smsAmount}}">
+      <input class="u-full-width" type="text" step='0.01' name="smsCost" placeholder="enter call cost" value="{{setValues.smsAmount}}">
       <label for="">Warning level</label>
-      <input class="u-full-width" type="text" name="warnLevel" placeholder="enter warning level" value="{{setValues.warnLevel}}">
+      <input class="u-full-width" type="text" step='0.01' name="warnLevel" placeholder="enter warning level" value="{{setValues.warnLevel}}">
       <label for="">Critical level</label>
-      <input class="u-full-width" type="text" name="critLevel" placeholder="enter critical level" value="{{setValues.critLevel}}">
+      <input class="u-full-width" type="text" step='0.01' name="critLevel" placeholder="enter critical level" value="{{setValues.critLevel}}">
       <input class="button-primary" type="submit">
     </form>
   </div>
