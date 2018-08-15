@@ -1,9 +1,6 @@
 [![Build Status](https://travis-ci.org/RichardMarkRoss/settings-bill-expressjs.svg?branch=master)](https://travis-ci.org/RichardMarkRoss/settings-bill-expressjs)
 
 
-[![Heroku](https://ross-settings-bill.herokuapp.com/?app=heroku-badge)]
-
-
 # Introduction to creating web apps with ExpressJS
 
 In this document we will explore how to create web applications with [ExpressJS](http://http://expressjs.com/).
